@@ -24,6 +24,8 @@ public class HotelReservationSystem {
 
         try {
             Connection connection = DriverManager.getConnection(url, username, password);
+            System.out.println();
+            System.out.println("Connection Established With Database....");
             while (true) {
                 System.out.println();
                 Scanner scanner = new Scanner(System.in);
@@ -198,9 +200,9 @@ public class HotelReservationSystem {
         }
     }
 
-    public static boolean reservationExists(Connection connection, int reseravationId){
+    public static boolean reservationExists(Connection connection, int reservationId){
         try{
-            String query = "SELECT reservation_id FROM reservations WHERE reservation_id = "+reseravationId;
+            String query = "SELECT reservation_id FROM reservations WHERE reservation_id = "+reservationId;
             try(Statement statement = connection.createStatement()){
                 ResultSet resultSet = statement.executeQuery(query);
                 return resultSet.next();
@@ -216,7 +218,7 @@ public class HotelReservationSystem {
         int i=5;
         while(i>0){
             System.out.print(". ");
-            Thread.sleep(1000);
+            Thread.sleep(500);
             i--;
         }
         System.out.println();
