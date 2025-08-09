@@ -186,7 +186,7 @@ public class AccountManager {
     }
 
     public void exit() throws InterruptedException{
-        int i = 5;
+        int i = 4;
         System.out.println();
         System.out.print("Exiting System");
         while(i>0){

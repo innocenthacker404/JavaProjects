@@ -63,10 +63,7 @@ public class User {
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 return email;
-            }else{
-                return null;
             }
-
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
