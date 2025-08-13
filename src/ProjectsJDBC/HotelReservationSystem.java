@@ -226,6 +226,6 @@ public class HotelReservationSystem {
             i--;
         }
         System.out.println();
-        System.out.println("Thank You For Using Sasaram Hotel Reservation System!!");
+        System.out.println("Thank You For Using Hotel Reservation System!!");
     }
 }
