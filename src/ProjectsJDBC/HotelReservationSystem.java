@@ -1,10 +1,6 @@
 package ProjectsJDBC;
 
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.Scanner;
 
 
@@ -155,30 +151,33 @@ public class HotelReservationSystem {
         }
     }
 
-    public static void updateReservation(Connection connection, Scanner scanner){
-        try{
+    public static void updateReservation(Connection connection, Scanner scanner) {
+        try {
             System.out.print("Enter reservation ID: ");
             int reservationId = scanner.nextInt();
             System.out.print("Enter new name: ");
             String guestName = scanner.next();
             System.out.print("Enter new room number: ");
-            int roomNumber = scanner.nextInt();
+            int newRoomNumber = scanner.nextInt();
             System.out.print("Enter new contact number: ");
             String contactNumber = scanner.next();
 
-            String query = "UPDATE reservations SET guest_name = '"+ guestName +"', "+"room_number = "+roomNumber+", "+"contact_number = '"+contactNumber+"' "+" WHERE reservation_id = "+reservationId;
-            try(Statement statement = connection.createStatement()){
+            String query = "UPDATE reservations SET guest_name = '" + guestName + "', " + "room_number = " + newRoomNumber + ", " + "contact_number = '" + contactNumber + "' " + " WHERE reservation_id = " + reservationId;
+
+            try (Statement statement = connection.createStatement()) {
                 int rowsAffect = statement.executeUpdate(query);
-                if(rowsAffect>0){
+                if (rowsAffect > 0) {
                     System.out.println("Update successfully!!");
-                }else{
+                } else {
                     System.out.println("Update operation Failed!!");
                 }
             }
-        }catch(SQLException e){
+        }catch (SQLException e){
             System.out.println(e.getMessage());
         }
     }
+
+
 
     public static void deleteReservation(Connection connection, Scanner scanner){
         try{
